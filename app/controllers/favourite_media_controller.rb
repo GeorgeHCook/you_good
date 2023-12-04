@@ -1,0 +1,2 @@
+class FavouriteMediaController < ApplicationController
+end
