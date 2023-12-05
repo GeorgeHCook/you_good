@@ -1,0 +1,5 @@
+<%= simple_form_for [@check_in] do |f| %>
+  <%= f.input :score, input_html: { type: 'number', min: '1', max: '10' } %>
+  <%= f.input :details %>
+  <%= f.submit "YouDone?" %>
+<% end %>
