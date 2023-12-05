@@ -9,7 +9,7 @@ class CheckInsController < ApplicationController
     @check_in = CheckIn.new(check_in_params)
     @check_in.user = current_user
     if @check_in.save
-      redirect_to root_path
+      redirect_to check_in_path(@check_in)
     else
       render :new
     end
