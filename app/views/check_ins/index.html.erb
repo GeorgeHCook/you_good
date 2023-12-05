@@ -1,0 +1,12 @@
+<h1>Check-ins</h1>
+
+<ul>
+  <% @check_ins.each do |check_in| %>
+    <% if check_in.user == current_user %>
+      <li>
+        <strong>Date:</strong> <%= check_in.created_at.strftime("%d") %><br>
+        <strong>Score:</strong> <%= check_in.score %>/10<br>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
