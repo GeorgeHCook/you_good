@@ -1,12 +1,4 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
 puts 'Cleaning database...'
 User.destroy_all
 CheckIn.destroy_all
@@ -35,3 +27,4 @@ Medium.create!(title: "Eddie Nestor | Male Mental Health & Suicide", category: "
 Medium.create!(title: "Mindfulness", category: "Music", media_type: "Audio", media_url: "https://soundcloud.com/yoga-relax/mindfulness?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", artwork_url: "https://i1.sndcdn.com/artworks-3TdkZ53Y0Ist-0-t500x500.jpg")
 
 Puts 'finished'
+

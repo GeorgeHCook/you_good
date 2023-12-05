@@ -1,0 +1,12 @@
+<h1>Check-ins</h1>
+
+<ul>
+  <% @check_ins.each do |check_in| %>
+    <% if check_in.user == current_user %>
+      <li>
+        <strong>Checked in on:</strong> <%= check_in.created_at.strftime("%A") %> with a score of <%= check_in.score %>/10<br>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+<%= link_to 'Go home', root_path %>
