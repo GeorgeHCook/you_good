@@ -20,6 +20,7 @@ class CheckInsController < ApplicationController
   end
 
   def index
+
     @check_ins = CheckIn.where("created_at >= ?", 7.days.ago)
   end
 

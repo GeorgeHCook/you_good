@@ -4,7 +4,7 @@
   <% @check_ins.each do |check_in| %>
     <% if check_in.user == current_user %>
       <li>
-        <strong>Checked in on:</strong> <%= check_in.created_at.strftime("%A") %> with a score of <%= check_in.score %>/10<br>
+        <strong>Checked in on:</strong> <%= link_to check_in.created_at.strftime("%A"), check_in_path(check_in) %> with a score of <%= check_in.score %>/10<br>
       </li>
     <% end %>
   <% end %>
