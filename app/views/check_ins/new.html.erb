@@ -1,5 +1,6 @@
 <%= simple_form_for [@check_in] do |f| %>
-  <%= f.input :score, input_html: { type: 'number', min: '1', max: '10' } %>
-  <%= f.input :details %>
+  <%= f.input :score, label: 'How are you, out of 10?', input_html: { type: 'number', min: '1', max: '10', :value => '5' } %>
+  <%= f.input :details, label: 'Anything on your mind?', input_html: { :value => 'No worries if not...' } %>
+  <%= f.input :photo, label: 'Why not share a moment from your day', as: :file %>
   <%= f.submit "YouDone?" %>
 <% end %>

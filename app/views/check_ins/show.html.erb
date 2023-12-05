@@ -1,0 +1,11 @@
+<% user = current_user %>
+<%= user.first_name %>
+<h1>Check In Details</h1>
+
+<p><strong>ID:</strong> <%= @check_in.id %></p>
+<p><strong>User:</strong> <%= @check_in.user.name %></p>
+<p><strong>Date:</strong> <%= @check_in.created_at.strftime("%B %d, %Y") %></p>
+<!-- Add more details as needed -->
+
+<%= link_to "Edit", edit_check_in_path(@check_in) %>
+<%= link_to "Delete", check_in_path(@check_in), method: :delete, data: { confirm: "Are you sure you want to delete this check-in?" } %>
