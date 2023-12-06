@@ -1,9 +1,13 @@
 
-<%= check_in.user.first_name %>
+<%= current_user.first_name %>
 <h2>Today you feel</h2>
 <h1><%= @check_in.score %></h1><h3>out of 10</h3>
+<%= @check_in.details %>
+<% if @check_in.photo.attached? %>
+  <%= cl_image_tag(@check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
+<% end %>
+<br>
 
-
-
+<%= link_to "home", root_path %>
 <%# <%= link_to "Edit", edit_check_in_path(@check_in) %>
 <%# <%= link_to "Delete", check_in_path(@check_in), method: :delete, data: { confirm: "Are you sure you want to delete this check-in?" } %>
