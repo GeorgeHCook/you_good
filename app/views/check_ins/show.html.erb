@@ -1,19 +1,26 @@
+<div class='container'>
+  <%= current_user.first_name %>
+  <h2>Today you feel</h2>
+  <h1><%= @check_in.score %></h1><h3>out of 10</h3>
+  <%= @check_in.details %>
+  <% if @check_in.photo.attached? %>
+    <%= cl_image_tag(@check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
+  <% end %><br>
+</div>
 
-<%= current_user.first_name %>
-<h2>Today you feel</h2>
-<h1><%= @check_in.score %></h1><h3>out of 10</h3>
-<%= @check_in.details %>
-<% if @check_in.photo.attached? %>
-  <%= cl_image_tag(@check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
-<% end %><br>
+<div class='music'>
+  <% @tracks.each do |id| %>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= id %>?utm_source=generator" width="80%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <% end %>
+</div>
 
-
-<% @tracks.each do |id| %>
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= id %>?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-<% end %>
-
-
-<br>
-<%= link_to "home", root_path %>
+<div class='video'>
+  <div>
+  <% @videos.each do |video_id| %>
+    <iframe style="border-radius:12px" width="80%" height="150" src="https://www.youtube.com/embed/<%= video_id %>?si=rRRD7TJp043R_ddz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <% end %>
+  <br>
+</div>
+  <%= link_to "home", root_path %>
 <%# <%= link_to "Edit", edit_check_in_path(@check_in) %>
 <%# <%= link_to "Delete", check_in_path(@check_in), method: :delete, data: { confirm: "Are you sure you want to delete this check-in?" } %>
