@@ -5,9 +5,15 @@
 <%= @check_in.details %>
 <% if @check_in.photo.attached? %>
   <%= cl_image_tag(@check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
-<% end %>
-<br>
+<% end %><br>
 
+
+<% @tracks.each do |id| %>
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= id %>?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<% end %>
+
+
+<br>
 <%= link_to "home", root_path %>
 <%# <%= link_to "Edit", edit_check_in_path(@check_in) %>
 <%# <%= link_to "Delete", check_in_path(@check_in), method: :delete, data: { confirm: "Are you sure you want to delete this check-in?" } %>
