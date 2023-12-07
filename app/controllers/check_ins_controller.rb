@@ -20,6 +20,7 @@ class CheckInsController < ApplicationController
   def show
     set_check_in
     @tracks = music
+    @track.each do 
   end
 
 
@@ -50,4 +51,3 @@ class CheckInsController < ApplicationController
     results.map(&:id)
   end
 end
-

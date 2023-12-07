@@ -26,7 +26,7 @@ Medium.create!(title: "Relaxing Music for Stress Relief", category: "Music", med
 Medium.create!(title: "Eddie Nestor | Male Mental Health & Suicide", category: "Podcast", media_type: "Audio", media_url: "https://soundcloud.com/eddie-nestor-558883944/eddie-nestor-male-mental-health-suicide?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" , artwork_url: "https://i1.sndcdn.com/artworks-000473849547-2jz7n9-t500x500.jpg")
 Medium.create!(title: "Mindfulness", category: "Music", media_type: "Audio", media_url: "https://soundcloud.com/yoga-relax/mindfulness?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", artwork_url: "https://i1.sndcdn.com/artworks-3TdkZ53Y0Ist-0-t500x500.jpg")
 
-Puts 'finished'
+puts 'finished'
 
 
 
