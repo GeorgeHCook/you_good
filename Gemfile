@@ -2,6 +2,10 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+# youtube api gem
+gem "google-api-client", '>0.7'
+gem "httparty"
+
 # gem for spotify api
 gem 'rspotify'
 
