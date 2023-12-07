@@ -21,9 +21,9 @@ class CheckInsController < ApplicationController
     @videos = video
   end
 
-
   def index
     @check_ins = CheckIn.where("created_at >= ?", 7.days.ago)
+    # @chart = line_chart CheckIn.group_by_day_of_week(:created_at, range: 1.week.ago..Time.now, format: "%a").score
   end
 
   private
