@@ -2,6 +2,12 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+# Search
+gem "pg_search"
+
+# ChatGPT
+gem "ruby-openai"
+
 # youtube api gem
 gem "google-api-client", '>0.7'
 gem "httparty"
@@ -11,6 +17,7 @@ gem 'rspotify'
 
 # gem for charts
 gem 'chartkick'
+gem "groupdate"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"

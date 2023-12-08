@@ -1,16 +1,16 @@
 <div class='container'>
-  <%= current_user.first_name %>
-  <h2>Today you feel</h2>
-  <h1><%= @check_in.score %></h1><h3>out of 10</h3>
-  <%= @check_in.details %>
+  <%= current_user.first_name %>...<br>
+  <h4>Today you feel...</h4>
+  <p><h1><%= @check_in.score %> </h1><h3>out of 10</h3></p>
   <% if @check_in.photo.attached? %>
     <%= cl_image_tag(@check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
   <% end %><br>
 </div>
+<div><%= @check_in.details_content %></div>
 
 <div class='music'>
   <% @tracks.each do |id| %>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= id %>?utm_source=generator" width="80%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px" src=<%="https://open.spotify.com/embed/track/#{id}?utm_source=generator"%> width="80%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   <% end %>
 </div>
 
