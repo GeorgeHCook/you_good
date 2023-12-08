@@ -19,6 +19,8 @@ class CheckInsController < ApplicationController
     set_check_in
     @tracks = music
     @videos = video
+    # raise
+    # @details_response = chaptgpt_details_response
   end
 
   def index
@@ -43,16 +45,16 @@ class CheckInsController < ApplicationController
 
   def video
     set_check_in
-    if @check_in.score >= 1 && @check_in.score <= 3
-      search_input = "meditation+anxiety+relief"
-    elsif @check_in.score >= 4 && @check_in.score <= 6
-      search_input = "chill+meditation+yoga"
-    elsif @check_in.score >= 7 && @check_in.score <= 8
-      search_input = "feel+good+yoga"
-    elsif @check_in.score >= 9 && @check_in.score <= 10
-      search_input = "happy+yoga+upbeat+music"
-    end
-    response = HTTParty.get("https://www.googleapis.com/youtube/v3/search?key=#{ENV["YOUTUBE_API_KEY"]}&q=#{search_input}&part=snippet&maxResults=10&type=video")
+    # if @check_in.score >= 1 && @check_in.score <= 3
+    #   search_input = "meditation+anxiety+relief"
+    # elsif @check_in.score >= 4 && @check_in.score <= 6
+    #   search_input = "chill+meditation+yoga"
+    # elsif @check_in.score >= 7 && @check_in.score <= 8
+    #   search_input = "feel+good+yoga"
+    # elsif @check_in.score >= 9 && @check_in.score <= 10
+    #   search_input = "happy+yoga+upbeat+music"
+    # end
+    response = HTTParty.get("https://www.googleapis.com/youtube/v3/search?key=#{ENV["YOUTUBE_API_KEY"]}&q=#{@check_in.video_content}&part=snippet&maxResults=10&type=video")
     response["items"].map do |video|
       video["id"]["videoId"]
     end
@@ -64,29 +66,29 @@ class CheckInsController < ApplicationController
     # medium_mood = acoustic chill, acoustic, uplifting chilled music, daily meditation.
     # higher_mood = feel good chilled, upbeat acoustic, feel good lo-fi.
     # best_mood = happy music, chilled happy, party music.
-    RSpotify.authenticate(ENV["SPOTIFY_ID"], ENV["SPOTIFY_SECRET"])
+    RSpotify.authenticate(ENV.fetch("SPOTIFY_ID"), ENV.fetch("SPOTIFY_SECRET"))
     set_check_in
     # if @check_in.score >= 1 && @check_in.score <= 3
     if (1..2).include?(@check_in.score)
-      tracks = RSpotify::Track.search("extreme anxiety relief")
+      tracks = RSpotify::Track.search(@check_in.music_content)
       results = tracks.select do |track|
         audio_features = track.audio_features
         audio_features.valence >= 0.007 && audio_features.energy <= 0.3
       end
     elsif (3..5).include?(@check_in.score)
-      tracks = RSpotify::Track.search("chill music for low mood")
+      tracks = RSpotify::Track.search(@check_in.music_content)
       results = tracks.select do |track|
         audio_features = track.audio_features
         audio_features.valence >= 0.007 && audio_features.energy <= 0.5
       end
     elsif (6..7).include?(@check_in.score)
-      tracks = RSpotify::Track.search("acoustic chill, upbeat")
+      tracks = RSpotify::Track.search(@check_in.music_content)
       results = tracks.select do |track|
         audio_features = track.audio_features
         audio_features.valence >= 0.007 && audio_features.energy <= 0.7
       end
     elsif (8..10).include?(@check_in.score)
-      tracks = RSpotify::Track.search("acoustic chill, upbeat")
+      tracks = RSpotify::Track.search(@check_in.music_content)
       results = tracks.select do |track|
         audio_features = track.audio_features
         audio_features.valence >= 0.007 && audio_features.energy <= 0.8
