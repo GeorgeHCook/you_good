@@ -1,6 +1,6 @@
 <h1>Check-ins</h1>
 
-<%= line_chart CheckIn.group_by_day(:created_at, range: 6.days.ago..DateTime.now, format: "%a").average(:score) %>
+<%= line_chart @grouped_check_ins %>
 
 <ul>
   <% @check_ins.each do |check_in| %>
