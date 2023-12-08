@@ -22,8 +22,13 @@ class CheckInsController < ApplicationController
   end
 
   def index
-    @check_ins = CheckIn.where("created_at >= ?", 7.days.ago)
+    @check_ins = CheckIn.where("created_at >= ?", 7.days.ago).where(user: current_user)
     # @chart = line_chart CheckIn.group_by_day_of_week(:created_at, range: 1.week.ago..Time.now, format: "%a").score
+    @grouped_check_ins = @check_ins.group_by { |check_in| Date.new(check_in.created_at.year, check_in.created_at.month, check_in.created_at.day) }
+    @grouped_check_ins = @grouped_check_ins.map do |key, value|
+      [key, value.sum(&:score)]
+    end.to_h
+
   end
 
   private

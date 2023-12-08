@@ -2,6 +2,12 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+# Search
+gem "pg_search"
+
+# ChatGPT
+gem "ruby-openai"
+
 # youtube api gem
 gem "google-api-client", '>0.7'
 gem "httparty"
