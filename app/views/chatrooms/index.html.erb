@@ -1,27 +1,29 @@
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: chatrooms_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find another user to talk to..."
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-  <div><% @users.each do |user| %>
-        <%= user.first_name %>
-        <%= user.email %>
-        <%= button_to "chat", new_chatroom_path(user_id: user.id) %><br>
+<div class ="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: chatrooms_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find another user to talk to..."
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
       <% end %>
-  </div>
+    </div>
+    <div><% @users.each do |user| %>
+          <%= user.first_name %>
+          <%= user.email %>
+          <%= button_to "chat", new_chatroom_path(user_id: user.id) %><br>
+        <% end %>
+    </div>
 
-  <% @chatrooms.each do |chatroom| %>
-    <% if chatroom.participant_one_id == current_user.id %>
-      <%= link_to User.find(chatroom.participant_two_id).first_name, chatroom_path(chatroom) %>
-    <% else %>
-      <%= link_to User.find(chatroom.participant_one_id).first_name, chatroom_path(chatroom) %>
+    <% @chatrooms.each do |chatroom| %>
+      <% if chatroom.participant_one_id == current_user.id %>
+        <%= link_to User.find(chatroom.participant_two_id).first_name, chatroom_path(chatroom) %>
+      <% else %>
+        <%= link_to User.find(chatroom.participant_one_id).first_name, chatroom_path(chatroom) %>
+      <% end %>
+      <br>
     <% end %>
-    <br>
-  <% end %>
+  </div>
 </div>

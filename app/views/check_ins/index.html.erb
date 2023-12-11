@@ -1,15 +1,18 @@
-<h1>Check-ins</h1>
+<div class="container">
+  <h1>Check-ins</h1>
+  <div id="graph">
+    <%= line_chart @grouped_check_ins %>
+  </div>
 
-<%= line_chart @grouped_check_ins %>
-
-<ul>
-  <% @check_ins.each do |check_in| %>
-    <% if check_in.user == current_user %>
-      <li>
-        <strong>Checked in on:</strong> <%= link_to check_in.created_at.strftime("%A"), check_in_path(check_in) %> with a score of <%= check_in.score %>/10<br>
-        <%# <%= cl_image_tag(check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %> 
-      </li>
+  <ul>
+    <% @check_ins.each do |check_in| %>
+      <% if check_in.user == current_user %>
+        <div class="link-card">
+            <strong>Checked in on:</strong> <%= link_to check_in.created_at.strftime("%A"), check_in_path(check_in) %> with a score of <%= check_in.score %>/10<br>
+            <%# <%= cl_image_tag(check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
-<%= link_to 'Go home', root_path %>
+  </ul>
+  <%= link_to 'Go home', root_path %>
+</div>
