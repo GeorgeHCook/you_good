@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_08_130843) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_11_093910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_08_130843) do
     t.datetime "updated_at", null: false
     t.bigint "participant_one_id"
     t.bigint "participant_two_id"
+    t.integer "user_id"
     t.index ["participant_one_id"], name: "index_chatrooms_on_participant_one_id"
     t.index ["participant_two_id"], name: "index_chatrooms_on_participant_two_id"
   end
