@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :check_ins, only: %i[new create index show music]
   resources :chatrooms, only: %i[create index show] do
-    resources :messages, only: :create
+  resources :messages, only: :create
+  
   end
   post "/chatrooms/:user_id", to: "chatrooms#create", as: :new_chatroom
 end
