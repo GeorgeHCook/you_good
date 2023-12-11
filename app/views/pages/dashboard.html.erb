@@ -1,6 +1,13 @@
 <div class="dash_container">
+  <div class= "greeting"><h1>YouGood? ~ <%= current_user.first_name %></h1></div>
 
-  <h1>YouGood? ~ <%= current_user.first_name %></h1>
+  <div class= "fact_container">
+    <h4>Did you know?</h4>
+    <p>1 in 4 people in the UK will experience a mental health problem each year. You are not alone!</p>
+  </div>
+
+  <div class="line"></div>
+
   <div class="link-card">
     <%= link_to "New Check-in ~>", new_check_in_path %><br>
   </div>
@@ -12,5 +19,9 @@
   </div>
   <div class="link-card">
     <%= link_to "Find help if you are in crisis ~>", 'https://www.nhs.uk/service-search/mental-health/find-an-urgent-mental-health-helpline' %>
+  </div>
+
+  <div class= "logo">
+    <%= image_tag "faces_stroked.png", class: "faces" %>
   </div>
 </div>

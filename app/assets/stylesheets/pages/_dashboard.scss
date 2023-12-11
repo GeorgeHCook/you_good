@@ -4,13 +4,40 @@
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
+  position: absolute;
 
-  .link-card {
+  .greeting {
+    position: relative;
+    left: -50px;
+  }
+
+  .faces {
+    width: 90px;
+    transform: rotate(-40deg);
+    position: relative;
+    right: -150px;
+  }
+
+  .fact_container {
     width: 80%;
-    outline: 1px solid #000000;
+    color: white;
     margin: 1rem;
     border-radius: 5px;
     padding: 1rem;
+    background-color: #3330D4;
+  }
+  .line {
+    width: 90%;
+    border-bottom: #3330D4 0.5px solid;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+  .link-card {
+    width: 80%;
+    margin: 1rem;
+    border-radius: 5px;
+    padding: 1rem;
+    border: #3330D4 0.5px solid;;
   }
 
   .image {
