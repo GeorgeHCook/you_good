@@ -9,6 +9,7 @@ class CheckInsController < ApplicationController
     @check_in = CheckIn.new(check_in_params)
     @check_in.user = current_user
     if @check_in.save
+      create_medium(@check_in)
       redirect_to check_in_path(@check_in)
     else
       render :new
@@ -17,10 +18,8 @@ class CheckInsController < ApplicationController
 
   def show
     set_check_in
-    @tracks = music
-    @videos = video
-    # raise
-    # @details_response = chaptgpt_details_response
+    @videos = @check_in.media.where(media_type: "video")
+    @tracks = @check_in.media.where(media_type: "music")
   end
 
   def index
@@ -30,10 +29,14 @@ class CheckInsController < ApplicationController
     @grouped_check_ins = @grouped_check_ins.map do |key, value|
       [key, value.sum(&:score)]
     end.to_h
-
   end
 
   private
+
+  def create_medium(check_in)
+    @tracks = music(check_in)
+    @videos = video(check_in)
+  end
 
   def check_in_params
     params.require(:check_in).permit(:score, :details, :photo)
@@ -43,8 +46,8 @@ class CheckInsController < ApplicationController
     @check_in = CheckIn.find(params[:id])
   end
 
-  def video
-    set_check_in
+  def video(check_in)
+    # set_check_in
     # if @check_in.score >= 1 && @check_in.score <= 3
     #   search_input = "meditation+anxiety+relief"
     # elsif @check_in.score >= 4 && @check_in.score <= 6
@@ -54,46 +57,49 @@ class CheckInsController < ApplicationController
     # elsif @check_in.score >= 9 && @check_in.score <= 10
     #   search_input = "happy+yoga+upbeat+music"
     # end
-    response = HTTParty.get("https://www.googleapis.com/youtube/v3/search?key=#{ENV["YOUTUBE_API_KEY"]}&q=#{@check_in.video_content}&part=snippet&maxResults=10&type=video")
+    response = HTTParty.get("https://www.googleapis.com/youtube/v3/search?key=#{ENV["YOUTUBE_API_KEY"]}&q=#{check_in.video_content}&part=snippet&maxResults=10&type=video")
     response["items"].map do |video|
-      video["id"]["videoId"]
+      Medium.create!(check_in: check_in, video_id: video["id"]["videoId"], media_type: "video")
+      # video["id"]["videoId"]
     end
   end
 
-  def music
+  def music(check_in)
     # lowest_mood = anxiety relief, calming, music for low mood.
     # low_mood = chill meditation, chill music, meditation music, chill music for low mood.
     # medium_mood = acoustic chill, acoustic, uplifting chilled music, daily meditation.
     # higher_mood = feel good chilled, upbeat acoustic, feel good lo-fi.
     # best_mood = happy music, chilled happy, party music.
     RSpotify.authenticate(ENV.fetch("SPOTIFY_ID"), ENV.fetch("SPOTIFY_SECRET"))
-    set_check_in
+    # set_check_in
     # if @check_in.score >= 1 && @check_in.score <= 3
-    if (1..2).include?(@check_in.score)
-      tracks = RSpotify::Track.search(@check_in.music_content)
+    if (1..2).include?(check_in.score)
+      tracks = RSpotify::Track.search(check_in.music_content)
       results = tracks.select do |track|
         audio_features = track.audio_features
         audio_features.valence >= 0.007 && audio_features.energy <= 0.3
       end
-    elsif (3..5).include?(@check_in.score)
-      tracks = RSpotify::Track.search(@check_in.music_content)
+    elsif (3..5).include?(check_in.score)
+      tracks = RSpotify::Track.search(check_in.music_content)
       results = tracks.select do |track|
         audio_features = track.audio_features
         audio_features.valence >= 0.007 && audio_features.energy <= 0.5
       end
-    elsif (6..7).include?(@check_in.score)
-      tracks = RSpotify::Track.search(@check_in.music_content)
+    elsif (6..7).include?(check_in.score)
+      tracks = RSpotify::Track.search(check_in.music_content)
       results = tracks.select do |track|
         audio_features = track.audio_features
         audio_features.valence >= 0.007 && audio_features.energy <= 0.7
       end
-    elsif (8..10).include?(@check_in.score)
-      tracks = RSpotify::Track.search(@check_in.music_content)
+    elsif (8..10).include?(check_in.score)
+      tracks = RSpotify::Track.search(check_in.music_content)
       results = tracks.select do |track|
         audio_features = track.audio_features
         audio_features.valence >= 0.007 && audio_features.energy <= 0.8
       end
     end
-    results.map(&:id)
+    results.map do |track|
+      Medium.create!(check_in: check_in, music_id: track.id, media_type: "music")
+    end
   end
 end

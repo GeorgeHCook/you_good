@@ -9,15 +9,15 @@
 <div><%= @check_in.details_content %></div>
 
 <div class='music'>
-  <% @tracks.each do |id| %>
-    <iframe style="border-radius:12px" src=<%="https://open.spotify.com/embed/track/#{id}?utm_source=generator"%> width="80%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <% @tracks.each do |track| %>
+    <iframe style="border-radius:12px" src=<%="https://open.spotify.com/embed/track/#{track.music_id}?utm_source=generator"%> width="80%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   <% end %>
 </div>
 
 <div class='video'>
   <div>
-  <% @videos.each do |video_id| %>
-    <iframe style="border-radius:12px" width="80%" height="150" src="https://www.youtube.com/embed/<%= video_id %>?si=rRRD7TJp043R_ddz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <% @videos.each do |video| %>
+    <iframe style="border-radius:12px" width="80%" height="150" src="https://www.youtube.com/embed/<%= video.video_id %>?si=rRRD7TJp043R_ddz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   <% end %>
   <br>
 </div>
