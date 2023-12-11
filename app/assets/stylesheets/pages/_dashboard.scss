@@ -1,5 +1,9 @@
-.container{
-  margin: 0.2rem;
+.dash_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
 
   .link-card {
     width: 80%;

@@ -1,10 +1,10 @@
-<div class="container">
+<div class="index_container">
   <h1>Check-ins</h1>
   <div id="graph">
     <%= line_chart @grouped_check_ins %>
   </div>
 
-  <ul>
+  <div class="check_ins_container">
     <% @check_ins.each do |check_in| %>
       <% if check_in.user == current_user %>
         <div class="link-card">
@@ -13,6 +13,5 @@
         </div>
       <% end %>
     <% end %>
-  </ul>
-  <%= link_to 'Go home', root_path %>
+  </div>
 </div>
