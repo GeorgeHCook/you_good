@@ -1,5 +1,18 @@
-.container {
-  margin: 0.2rem;
+.index_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  .check_ins_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50%;
+    overflow: hidden;
+  }
 
   .link-card {
     width: 80%;
