@@ -1,6 +1,8 @@
 class CheckIn < ApplicationRecord
   belongs_to :user
+  has_many :media
   has_one_attached :photo
+  before_save :set_details_content
 
   def set_music_content
     client = OpenAI::Client.new
@@ -42,14 +44,14 @@ class CheckIn < ApplicationRecord
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: "take this input #{details}, and the mental health score of #{score} out of 10, and present it telling me how i feel and giving a positive outlook on, or helpfull steps towards solving it, only provide the requested response"}]
     })
-    return chaptgpt_details_response["choices"][0]["message"]["content"]
+    self.details_content = chaptgpt_details_response["choices"][0]["message"]["content"]
   end
 
-  def details_content
-    if super.blank?
-      set_details_content
-    else
-      super
-    end
-  end
+  # def details_content
+  #   if super.blank?
+  #     set_details_content
+  #   else
+  #     super
+  #   end
+  # end
 end

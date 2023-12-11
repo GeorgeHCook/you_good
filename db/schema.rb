@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_08_130843) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_11_090008) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,13 +93,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_08_130843) do
   end
 
   create_table "media", force: :cascade do |t|
-    t.string "title"
-    t.string "category"
     t.string "media_type"
-    t.string "media_url"
-    t.string "artwork_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video_id"
+    t.bigint "check_in_id"
+    t.string "music_id"
+    t.index ["check_in_id"], name: "index_media_on_check_in_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -134,6 +134,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_08_130843) do
   add_foreign_key "favourite_groups", "users"
   add_foreign_key "favourite_media", "check_ins"
   add_foreign_key "favourite_media", "media"
+  add_foreign_key "media", "check_ins"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end
