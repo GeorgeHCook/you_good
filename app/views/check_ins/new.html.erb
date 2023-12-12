@@ -1,8 +1,51 @@
 <div class="container">
-  <%= simple_form_for [@check_in] do |f| %>
-    <%= f.input :score, label: 'How are you, out of 10?', input_html: { type: 'number', min: '1', max: '10', :value => '5' } %>
-    <%= f.input :details, label: 'Anything on your mind?', input_html: { :value => 'No worries if not...' } %>
-    <%= f.input :photo, label: 'Why not share a moment from your day', as: :file %>
-    <%= f.submit "YouDone?" %>
-  <% end %>
+    <style>
+        .slider {
+            -webkit-appearance: none; /* Override default CSS styles */
+            appearance: none;
+            width: 100%; /* Full-width */
+            height: 15px; /* Specified height */
+            background: #d3d3d3; /* Grey background */
+            outline: none; /* Remove outline */
+            opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+            -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+            transition: opacity .2s;
+            transform:rotateZ(270deg);
+        }
+        .slider:hover {
+            opacity: 1; /* Fully visible on hover */
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Override default look */
+            appearance: none;
+            width: 100px; /* Set a specific slider handle width */
+            height: 100px; /* Slider handle height */
+            background-image: url('/assets/faces_stroked.png');
+            background-size: 100px 40px;
+            cursor: pointer; /* Cursor on hover */
+            background-repeat: no-repeat;
+            background-position: center;
+            transform:rotateZ(90deg);
+
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px; /* Set a specific slider handle width */
+            height: 25px; /* Slider handle height */
+            background-image: url('/assets/faces_stroked.png');
+            cursor: pointer; /* Cursor on hover */
+            transform:rotate(var(--r,90deg));
+        }
+    </style>
+    <div data-controller="slider">
+      <h2>Slider Value: <span id="score">5</span></h2>
+      <%= simple_form_for [@check_in] do |f| %>
+        <input type="range" min="1" max="10" value="5" class="slider" id="scoreSlider" data-slider-target="input">
+        <%= f.input :score, label: 'How are you, out of 10?', input_html: { type: 'number', min: '1', max: '10', :value => '5', data: {slider_target: "label" } } %>
+        <%= f.input :details, label: 'Anything on your mind?', input_html: { :value => 'No worries if not...' } %>
+        <%= f.input :photo, label: 'Why not share a moment from your day', as: :file %>
+        <%= f.submit "YouDone?" %>
+      <% end %>
+    </div>
 </div>
