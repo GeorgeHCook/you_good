@@ -12,10 +12,13 @@
   }
 
   .faces {
-    width: 90px;
+    width: 200px;
     transform: rotate(-40deg);
     position: relative;
-    right: -150px;
+    right: -140px;
+    bottom: 40px;
+    z-index: -5;
+    color:#3330D4;
   }
 
   .fact_container {
@@ -33,11 +36,21 @@
     margin-bottom: 1rem;
 }
   .link-card {
-    width: 80%;
+    display: flex;
+    width: 300px;
     margin: 1rem;
     border-radius: 5px;
     padding: 1rem;
-    border: #3330D4 0.5px solid;;
+    border: #3330D4 0.5px solid;
+    background-color: white;
+    opacity: 0.8;
+    position: relative;
+
+    .arrow {
+      width: 50px;
+      position: absolute;
+      right: 20px;
+    }
   }
 
   .image {
@@ -47,5 +60,10 @@
     height: 100px;
     object-fit: cover;
     text-align: center;
+    opacity: 0.8;
+  }
+
+  .box-shadow{
+    box-shadow:2px 5px 10px rgba(84, 84, 84, 0.512);
   }
 }

@@ -1,6 +1,7 @@
 body {
   padding: 0;
   box-sizing: border-box;
+  height: 100%;
 }
 
 .nav_container {
@@ -12,7 +13,9 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
+
 }
+
 .navbar {
   background-color: white;
   color: rgb(0, 0, 0);
@@ -37,5 +40,10 @@ body {
 
   .icon {
     width: 50px;
+  }
+
+  .arrow {
+    width: 50px;
+    transform: rotate(180deg);
   }
 }

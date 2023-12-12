@@ -1,5 +1,6 @@
 
 puts 'Cleaning database...'
+Chatroom.destroy_all
 User.destroy_all
 CheckIn.destroy_all
 puts 'Creating Users & Check ins...'

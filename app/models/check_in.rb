@@ -1,6 +1,6 @@
 class CheckIn < ApplicationRecord
   belongs_to :user
-  has_many :media
+  has_many :media, dependent: :destroy
   has_one_attached :photo
   before_save :set_details_content
 

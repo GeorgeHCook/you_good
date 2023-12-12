@@ -11,6 +11,7 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/dashboard";
+@import "pages/home";
 @import "check_ins/show";
 @import "check_ins/index";
 @import "check_ins/new";
@@ -31,6 +32,5 @@ a{
 
 body {
   background-color: white;
+  height: 100%;
 }
-
-
