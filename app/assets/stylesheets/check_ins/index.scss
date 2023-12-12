@@ -32,3 +32,26 @@
     padding: 1rem;
   }
 }
+
+.check_ins_images {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  overflow-x: auto;
+  height: 110px;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.image-card {
+  outline: 1px solid #000000;
+  margin: 5px;
+  border-radius: 5px;
+  height: 100px;
+  width: 200px;
+  background-position: center;
+  background-size: cover;
+  white-space: nowrap;
+}
