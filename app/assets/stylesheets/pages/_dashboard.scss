@@ -5,10 +5,11 @@
   flex-direction: column;
   overflow: hidden;
   position: absolute;
+  margin-top: 2rem;
 
   .greeting {
     position: relative;
-    left: -50px;
+    left: -75px;
   }
 
   .faces {
@@ -45,6 +46,8 @@
     background-color: white;
     opacity: 0.8;
     position: relative;
+    align-items: center;
+    font-size: 20px;
 
     .arrow {
       width: 50px;

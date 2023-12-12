@@ -1,7 +1,18 @@
 <div class="index_container">
   <h1>Check-ins</h1>
   <div id="graph">
-    <%= line_chart @grouped_check_ins %>
+    <%= line_chart @grouped_check_ins, class:'chart' %>
+  </div>
+
+  <div class="check_ins_images">
+    <% @check_ins.each do |check_in| %>
+      <% if check_in.user == current_user %>
+        <div class="image-card">
+            <%= cl_image_tag(check_in.photo.key, :transformation => { :width => 100px, :crop => "pad" }) %>
+            <%# <%= cl_image_tag(check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="check_ins_container">

@@ -4,6 +4,8 @@
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
+  margin-top: 2rem;
+
 
   .check_ins_container {
     display: flex;
@@ -15,7 +17,7 @@
   }
 
   .link-card {
-    width: 80%;
+    width: 90%;
     outline: 1px solid #000000;
     margin: 1rem;
     border-radius: 5px;
@@ -23,7 +25,8 @@
   }
 
   #graph {
-    width: 100%;
+    width: 90%;
+    outline: 1px solid #000000;
     margin: 1rem;
     border-radius: 5px;
     padding: 1rem;

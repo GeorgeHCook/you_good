@@ -55,15 +55,21 @@
       New Check-in<%= image_tag "arrow.png", class: "arrow"%><br>
     </div>
   <% end %>
-  <div class="link-card box-shadow">
-    <%= link_to "The last 7 days", check_ins_path %><%= image_tag "arrow.png", class: "arrow"%><br>
-  </div>
-  <div class="link-card box-shadow">
-    <%= link_to "Talk about it", chatrooms_path %><%= image_tag "arrow.png", class: "arrow"%><br>
-  </div>
-  <div class="link-card box-shadow">
-    <%= link_to "Find professional help", 'https://www.nhs.uk/service-search/mental-health/find-an-urgent-mental-health-helpline' %><%= image_tag "arrow.png", class: "arrow"%>
-  </div>
+  <%= link_to check_ins_path do %>
+    <div class="link-card box-shadow">
+      The last 7 days<%= image_tag "arrow.png", class: "arrow"%><br>
+    </div>
+  <% end %>
+  <%= link_to chatrooms_path do %>
+    <div class="link-card box-shadow">
+     Talk about it<%= image_tag "arrow.png", class: "arrow"%><br>
+    </div>
+  <% end %>
+  <%= link_to 'https://www.nhs.uk/service-search/mental-health/find-an-urgent-mental-health-helpline' do %>
+    <div class="link-card box-shadow">
+     Find professional help<%= image_tag "arrow.png", class: "arrow"%>
+    </div>
+  <% end %>
   <div class= "logo"><%= image_tag "faces_stroked.png", class: "faces" %></div>
 
 </div>

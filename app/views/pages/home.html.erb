@@ -1,23 +1,15 @@
-<h1><title>YOUGOOD?</title></h1>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUGOOD?</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
 <div class= "cover">
-  <div class="container">
-      <h1>YOUGOOD?</h1>
-      <p class="tagline">Your Daily Mental Fitness Manager</p>
-      <p class="subtitle">Check in with yourself</p>
-      <button onclick="window.location.href='dashboard.html'"> click me </button>
+  <div class="home_container">
+    <div class= "title">
+      <p>YouG<%= image_tag 'faces_mask.png', class: 'mask' %>d?</p>
+    </div>
+    <div class="tagline">
+      <p>Your Daily Mental Fitness Manager</p>
+    </div>
+    <%= link_to dashboard_path do%>
+      <div class = "action_call"><p>Check in with yourself</p><br>
+      <%= image_tag 'arrow_white.png', class:'down_arrow'%>
+    <% end %>
+    </div>
   </div>
 </div>
-</body>
-
-</html>

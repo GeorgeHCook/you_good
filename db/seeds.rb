@@ -7,17 +7,25 @@ puts 'Creating Users & Check ins...'
 
 require "faker"
 require "rspotify"
+require "open-uri"
 
-names = ["George", "Francisco", "Michael", "Jamie", "Thomas", "Constantine", "Will", "Havish", "Dareos", "Arbi", "Luca"]
-11.times do |i|
+names = ["George", "Francisco", "Michael", "Jamie", "Thomas", "Dareos", "Arbi", "Pedro"]
+8.times do |i|
   email = "#{names[i - 1]}@test.com"
   first_name = names[i - 1].to_s
   password = "123456"
 
   user = User.create!(email: email, first_name: first_name, password: password)
 
-  7.times do |j|
-    CheckIn.create(user: user, score: rand(1..10), created_at: j.days.ago)
+  5.times do |j|
+    check_in = CheckIn.create(user: user, score: rand(1..10), created_at: j.days.ago)
+    keywords = ["candid", "daily", "lifestyle", "food", "social", "friend"]
+    check_in.photo.attach(
+        content_type: "image/jpg",
+        filename: "#{keywords.sample}.jpg",
+        io: URI.open("https://loremflickr.com/320/240/#{keywords.sample}")
+    )
+    puts "created Check-in"
   end
 
   puts "created #{user.first_name}"
