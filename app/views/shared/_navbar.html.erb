@@ -2,11 +2,19 @@
 <div class="nav_container">
   <div class="navbar">
     <%= link_to root_path do %>
+      <%= image_tag "arrow.png", class: "arrow" %>
+    <% end %>
+    <%= link_to dashboard_path do %>
       <%= image_tag "home.png", class: "icon" %>
     <% end %>
-    <%= link_to root_path do %>
-      <%= image_tag "home.png", class: "icon" %>
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <%= image_tag "faces_stroked.png", class: "icon" %>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do%>
+        <%= image_tag "faces_stroked.png", class: "icon" %>
+      <% end %>
     <% end %>
-    <%= image_tag "faces_stroked.png", class: "icon" %>
   </div>
 </div>

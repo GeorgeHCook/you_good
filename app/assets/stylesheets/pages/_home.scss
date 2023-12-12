@@ -1,1 +1,57 @@
 // Specific CSS for your home-page
+.cover{
+  background-color: #3330D4;
+  height: 100vh;
+  z-index: 1;
+
+  .home_container {
+    display: flex;
+    padding: 1rem;
+    background-color: #3330D4;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    flex-direction: column;
+    // justify-content: space-around;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+  }
+
+  .title{
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  .mask {
+    width: 70px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .action_call {
+    display: flex;
+    color: white;
+    position: absolute;
+    bottom: 100px;
+    justify-content: space-around;
+    width: 250px;
+
+    p {
+      font-size: 2rem;
+      color: white;
+    }
+  }
+
+  .down_arrow {
+    color: white;
+    transform: rotate(90deg);
+    width: 200px;
+    margin-top: 3rem;
+  }
+}
