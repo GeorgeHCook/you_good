@@ -5,18 +5,24 @@
 }
 
 // To style the message itself
-.sender-style, .receiver-style {
-  width: 70%;
+.sender-style {
+  // width: 70%;
   max-width: 400px;
   border-radius: 4px;
   padding: 8px;
-  min-height: 80px;
-}
-
-.sender-style {
-  background-color: lightcoral;
+  // min-height: 80px;
+  background-color: white;
+  background-color: #3330D4;
+  color: white;
 }
 
 .receiver-style {
-  background-color: lightblue;
+  // width: 70%;
+  max-width: 400px;
+  border-radius: 4px;
+  padding: 8px;
+  // min-height: 80px;
+  background-color: white;
+  border: #3330D4 0.5px solid;
+  color: #3330D4;
 }
