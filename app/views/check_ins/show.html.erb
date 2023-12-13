@@ -1,25 +1,38 @@
 <div class='show-container'>
-  <%= current_user.first_name %>...<br>
-  <h4>Today you feel...</h4>
-  <p><h1><%= @check_in.score %> </h1><h3>out of 10</h3></p>
+  <div class="show-title">
+    <h3><%= current_user.first_name %>...</h3>
+  </div>
+  <div class="score-card">
+    <h4>Today you feel...</h4>
+    <p><h1><%= @check_in.score %> </h1><h3>out of 10</h3></p>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="image-title">
+    <p>A moment to remember...</p>
+  </div>
+  <div class="image-container">
   <% if @check_in.photo.attached? %>
     <%= cl_image_tag(@check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
   <% end %><br>
-  <div><%= @check_in.details_content %></div>
+  </div>
+  <div class="details"><%= @check_in.details_content %></div>
 
-  <div class='music'>
+  <div class="line"></div>
+
+  <div class='music-container'>
     <% @tracks.each do |track| %>
-      <iframe style="border-radius:12px" src=<%="https://open.spotify.com/embed/track/#{track.music_id}?utm_source=generator"%> width="80%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px" src=<%="https://open.spotify.com/embed/track/#{track.music_id}?utm_source=generator"%> width="80%" height="150" frameBorder="0" box-shadow="2px 5px 10px rgba(84, 84, 84, 0.512)" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     <% end %>
   </div>
 
-  <div class='video'>
-    <div>
-    <% @videos.each do |video| %>
-      <iframe style="border-radius:12px" width="80%" height="150" src="https://www.youtube.com/embed/<%= video.video_id %>?si=rRRD7TJp043R_ddz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <% end %>
-    <br>
-  </div>
+  <div class='video-container'>
+    <div class="video">
+      <% @videos.each do |video| %>
+        <iframe style="border-radius:12px" width="80%" height="100" src="https://www.youtube.com/embed/<%= video.video_id %>?si=rRRD7TJp043R_ddz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <% end %>
+    </div>
   </div>
   <%# <%= link_to "home", root_path %>
 <%# <%= link_to "Edit", edit_check_in_path(@check_in) %>
