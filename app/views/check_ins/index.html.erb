@@ -44,8 +44,8 @@
   <div class="check_ins_images">
     <% @check_ins.each do |check_in| %>
       <% if check_in.user == current_user %>
-        <div class="image-card" style="background-image: <%= cl_image_tag(check_in.photo.key) %>" >
-            <%# <%= cl_image_tag(check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
+        <div class="image-card">
+          <%= cl_image_tag(check_in.photo.key) %>
         </div>
       <% end %>
     <% end %>

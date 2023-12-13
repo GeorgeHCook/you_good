@@ -1,7 +1,8 @@
 <div class="container" data-controller="check-in">
   <%= simple_form_for [@check_in] do |f| %>
     <div id="step1" class="">
-      <%= f.input :score, label: 'How are you, out of 10?', input_html: { type: 'number', min: '1', max: '10', :value => '5' } %> 
+       <%# <input type="range" min="1" max="10" value="5" class="slider" id="scoreSlider" data-slider-target="input"> %>
+      <%= f.input :score, label: 'How are you, out of 10?', class:"slider", input_html: { type: 'range', min: '1', max: '10', :value => '5' } %>
       <button class="btn btn-primary" data-action="click->check-in#toggle">next</button>
     </div>
     <div id="step2" class="d-none">

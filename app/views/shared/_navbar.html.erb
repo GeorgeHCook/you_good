@@ -1,9 +1,12 @@
 
 <div class="nav_container">
   <div class="navbar">
-    <%= link_to root_path do %>
-      <%= image_tag "arrow.png", class: "arrow" %>
-    <% end %>
+    <form>
+      <input type="image" src="<%= image_path('arrow.png')%>" class="arrow" onclick="history.back()">
+    </form>
+    <%#= link_to root_path do %>
+      <%#= image_tag "arrow.png", class: "arrow" %>
+    <%# end %>
     <%= link_to dashboard_path do %>
       <%= image_tag "home.png", class: "icon" %>
     <% end %>

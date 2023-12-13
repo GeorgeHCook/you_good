@@ -37,6 +37,7 @@
     border-bottom: #3330D4 0.5px solid;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    opacity: 0.3;
   }
 
   .secondary-title {
@@ -103,15 +104,16 @@
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: visible;
-    height: 110px;
+    height: 120px;
     align-items: center;
     padding-left: 9%;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
   }
 
   .image-card {
     outline: 1px solid #000000;
     margin: 5px;
+    padding-bottom: 1rem;
     border-radius: 5px;
     height: 100px;
     width: 200px;
@@ -119,5 +121,12 @@
     background-size: cover;
     white-space: nowrap;
     box-shadow:2px 5px 10px rgba(84, 84, 84, 0.512);
+
+    img {
+      height: 100px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
   }
 }
