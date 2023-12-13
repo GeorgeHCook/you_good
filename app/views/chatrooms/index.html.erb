@@ -1,29 +1,52 @@
-<div class ="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-8 my-3">
-      <%= form_with url: chatrooms_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find another user to talk to..."
-          %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-      <% end %>
+<div class="chatrooms-container">
+  <div class="chatrooms-container2">
+    <div class="chatroom-title"><h3>Talk about it!</h3></div>
+    <div class="line"></div>
+    <div class="search-bar">
+      <div class="row justify-content-center">
+        <div class="col-sm-8 my-3">
+          <%= form_with url: chatrooms_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "Find another user..."
+              %>
+            <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div><% @users.each do |user| %>
-          <%= user.first_name %>
-          <%= user.email %>
-          <%= button_to "chat", new_chatroom_path(user_id: user.id) %><br>
+          <%= link_to "talk to #{user.first_name}", new_chatroom_path(user_id: user.id) %><br>
         <% end %>
     </div>
-
-    <% @chatrooms.each do |chatroom| %>
-      <% if chatroom.participant_one_id == current_user.id %>
-        <%= link_to User.find(chatroom.participant_two_id).first_name, chatroom_path(chatroom) %>
-      <% else %>
-        <%= link_to User.find(chatroom.participant_one_id).first_name, chatroom_path(chatroom) %>
+    <div class="current-chats">
+      <% @chatrooms.each do |chatroom| %>
+        <% if chatroom.participant_one_id == current_user.id %>
+          <%= link_to User.find(chatroom.participant_two_id).first_name, chatroom_path(chatroom) %>
+        <% else %>
+          <%= link_to User.find(chatroom.participant_one_id).first_name, chatroom_path(chatroom) %>
+        <% end %>
+        <br>
       <% end %>
-      <br>
-    <% end %>
+    </div>
+    <div class="line"></div>
+    <div class= "fact_container">
+      <% facts = [
+        "Conversations with friends boost oxytocin, reducing stress and enhancing well-being through positive social interactions.",
+        "Social interaction plays a crucial role in mental fitness and well-being.",
+        "Expressing emotions openly enhances social well-being and supports overall mental health.",
+        "Sharing personal experiences builds trust, reinforcing positive interpersonal connections.",
+        "Oxytocin released during conversations promotes feelings of comfort, calmness, and emotional balance.",
+        "Friendship-driven oxytocin acts as a natural stress-reliever and mood enhancer in social interactions.",
+        "Regular social dialogue contributes to the development of robust emotional and mental foundations over time.",
+        "Meaningful chats reinforce the essential role of social ties in maintaining overall well-being.",
+        "The brain's positive response to socializing actively nurtures a sustained positive mental state.",
+        "Friendship-induced oxytocin forms a critical neurochemical basis for supporting mental health and resilience.",
+        "Incorporating meaningful social talks into daily life becomes a cornerstone for sustaining mental well-being."
+      ] %>
+      <h4>Did you know?</h4>
+      <%= facts.sample %>
+    </div>
   </div>
 </div>
