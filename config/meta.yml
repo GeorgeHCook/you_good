@@ -1,8 +1,7 @@
-meta_product_name: “YouGood?”
+meta_product_name: "YouGood?"
 
-meta_title: “YouGood? - Imporve your mental fitness”
+meta_title: "YouGood? - Imporve your mental fitness"
 
-meta_description: “A mental health companion aimed at men, to aide in improving mental fitness and preventing mental health crisis”
+meta_description: "A mental health companion aimed at men, to aide in improving mental fitness and preventing mental health crisis"
 
-meta_image: “faces_lines_meta.png” # should exist in `app/assets/images/`
-
+meta_image: "faces_lines_meta.png" # should exist in `app/assets/images/`
