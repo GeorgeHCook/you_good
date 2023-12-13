@@ -1,30 +1,87 @@
 .new-container {
   display: flex;
-  width:100%;
+  justify-content: center;
   height: 100%;
-  flex-direction: column;
+
+  .simple_form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .new-container2{
+  display: flex;
   align-items: center;
-  // overflow: hidden;
+  justify-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 1px;
+  border: #3330D4 0.5px solid;
+  box-shadow:2px 5px 10px rgba(84, 84, 84, 0.512);
+  margin-top: 2rem;
+  height: 82%;
+  width: 80%;
+  border-radius: 5px;
+  }
+
+  .details-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+  }
+
+  .logo{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .logo img{
+    width: 50%;
+  }
+
+  .line {
+    width: 80%;
+    border-bottom: #3330D4 0.5px solid;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+  }
 
   input[type="range"] {
-    margin-top: 20rem;
-    height: 2px;
-    width: 400px;
+    margin-top: 6rem;
+    height: 1px;
+    width: 300px;
     transform: rotate(-90deg);
     border-radius: 15px;
     border: #3330D4 0.5px solid;
     background-color: white;
   }
 
+  textarea.form-control {
+    height: 300px;
+    position: relative;
+    top: -2rem;
+    font-weight: 100;
+  }
+
+  .form-control[type="file"] {
+    overflow: hidden;
+    font-weight: 100;
+  }
+
+  input[type="text"] {
+    height: 300px
+  }
+
   input[type="range"]::-webkit-slider-thumb {
-    /* removing default appearance */
     -webkit-appearance: none;
     appearance: none;
-    height: 100px;
-    width: 100px;
-    // background-color: #fff;
-    // border-radius: 50%;
-    // border: 2px solid #f50;
+    height: 70px;
+    width: 70px;
     background-image: url('/assets/faces_stroked.png');
     background-size: contain;
     background-position: center;
@@ -32,9 +89,19 @@
     transform: rotate(90deg);
   }
 
+  .title {
+    margin-top: 1.5rem;
+  }
+
   .simple_form {
     width: 100%;
-    height: 80%;
+    height: 100%;
+  }
+
+  .check_in_photo{
+    position:relative;
+    top: 2rem;
+    width: 100%;
   }
 
   .form-slider {
@@ -42,14 +109,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .button-container{
     display: flex;
     justify-content: space-around;
     width: 80%;
-
+    position: relative;
+    bottom: -2rem;
+  }
+  .button-container2{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: relative;
+    bottom: -0.8rem;
+  }
+  .button-container3{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: relative;
+    bottom: -18rem;
   }
 
   .back-button{
@@ -60,7 +142,4 @@
     position: relative;
     width: fit-content;
   }
-
-
-
 }

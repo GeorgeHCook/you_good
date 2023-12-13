@@ -1,28 +1,32 @@
 <div class="new-container" data-controller="check-in">
-  <div class="title"><h3>How are you, out of 10?</h3></div>
-  <%= simple_form_for [@check_in] do |f| %>
-    <div id="step1" class="form-slider">
-       <%# <input type="range" min="1" max="10" value="5" class="slider" id="scoreSlider" data-slider-target="input"> %>
-      <%= f.input :score, label: false, class:"slider", input_html: { type: 'range', min: '1', max: '10', :value => '5' } %>
-      <%# <div class="custom-button" data-action="click->check-in#toggle"> %>
-      <div class="button-container">
-        <div class="button back-button"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)'%></div>
-        <button class="button" data-action="click->check-in#next"><%= image_tag "arrow_white.png" %></button>
+  <div class="new-container2">
+    <div class="logo"><%= image_tag "faces_stroked.png" %></div>
+    <div class="title"><h4>How are you, out of 10?</h4></div>
+    <div class="line"></div>
+    <%= simple_form_for [@check_in] do |f| %>
+      <div id="step1" class="form-slider">
+        <%# <input type="range" min="1" max="10" value="5" class="slider" id="scoreSlider" data-slider-target="input"> %>
+        <%= f.input :score, label: false, class:"slider", input_html: { type: 'range', min: '1', max: '10', :value => '5' } %>
+        <%# <div class="custom-button" data-action="click->check-in#toggle"> %>
+        <div class="button-container">
+          <div class="button back-button"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)'%></div>
+          <button class="button" data-action="click->check-in#next"><%= image_tag "arrow_white.png" %></button>
+        </div>
       </div>
-    </div>
-    <div id="step2" class="d-none">
-       <%= f.input :details, label: 'Anything on your mind?', input_html: { :value => 'No worries if not...' } %>
-       <div class="button-container">
-        <button class="button" data-action="click->check-in#previous"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)' %></button>
-        <button class="button" data-action="click->check-in#next"><%= image_tag "arrow_white.png" %></button>
-       </div>
-    </div>
-    <div id="step3" class="d-none">
-      <%= f.input :photo, label: 'Why not share a moment from your day', as: :file %>
-      <div class="button-container">
-        <button class="button" data-action="click->check-in#previous"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)' %></button>
-        <%= f.submit "YouDone?" %>
+      <div id="step2" class="details-container d-none">
+        <%= f.input :details, label: false, input_html: { :value => '', placeholder: "Anything else on your mind?..." } %>
+        <div class="button-container2">
+          <button class="button" data-action="click->check-in#previous"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)' %></button>
+          <button class="button" data-action="click->check-in#next"><%= image_tag "arrow_white.png" %></button>
+        </div>
       </div>
-    </div>
-  <% end %>
+      <div id="step3" class="d-none">
+        <%= f.input :photo, label: 'Share a moment from your day!', as: :file %>
+        <div class="button-container3">
+          <button class="button" data-action="click->check-in#previous"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)' %></button>
+          <%= f.button :submit, "YouDone?", class:"button-submit" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
