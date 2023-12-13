@@ -1,12 +1,17 @@
-.container {
-  padding-top: 0.2rem;
-
+.show-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 100px;
 }
 
 .music {
   white-space: nowrap;
   overflow-x: auto;
-  height: 200;
+  height: 160px;
   align-items: center;
   margin-bottom: 1rem;
 }

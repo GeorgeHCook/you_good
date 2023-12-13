@@ -1,27 +1,75 @@
 <div class="index_container">
-  <h1>Check-ins</h1>
+  <div class="index-title">
+    <h3><%= current_user.first_name %>, it's time to reflect on your week!</h3>
+  </div>
+  <div class="line"></div>
   <div id="graph">
+    <p>Here's how you've been feeling:</p>
     <%= line_chart @grouped_check_ins, class:'chart' %>
   </div>
+  <div class="line"></div>
+  <div class= "fact_container box-shadow">
+    <% facts = [
+  "Taking a moment to look back helps us understand ourselves better, a key to mental well-being.",
+  "Remembering past challenges is like having a toolkit for facing whatever comes our way.",
+  "When we acknowledge our feelings, we're building emotional smarts and better coping skills.",
+  "Thinking about our wins boosts confidence and keeps a positive vibe going.",
+  "Noticing what stressed us before helps in dealing with similar situations in the future.",
+  "Tracking moods is like having a heads-up on what might be getting to us.",
+  "Our past experiences? They're like gold mines for personal growth lessons.",
+  "Figuring out what makes us anxious or sad is a big step toward solving those issues.",
+  "Reflecting on how we cope is like fine-tuning our mental health toolkit.",
+  "Celebrating small wins keeps us motivated and feeling good about ourselves.",
+  "Looking back gives us a sense of control over our mental well-being journey.",
+  "It's like creating a mental health workout routine - regular reflection builds resilience.",
+  "Regular check-ins let us catch any dips in our mental health early on.",
+  "Knowing our emotional patterns makes for smoother sailing in relationships.",
+  "Reflecting on what we're grateful for plants seeds of positivity in our minds.",
+  "Every little step forward, no matter how small, deserves a mental high-five.",
+  "Regular self-checks help us spot personal triggers and avoid unnecessary bumps.",
+  "It's like setting GPS for realistic goals that align with our mental health needs.",
+  "Looking back regularly is like putting on a mental health superhero cape.",
+  "Showing ourselves some love and understanding during reflection creates a friendlier mental space."
+  ] %>
 
+  <h4>Did you know?</h4>
+    <%= facts.sample %>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="secondary-title">
+    <h5>Moments to remember ~</h5>
+  </div>
   <div class="check_ins_images">
     <% @check_ins.each do |check_in| %>
       <% if check_in.user == current_user %>
-        <div class="image-card" style= "background-image:url(<%= cl_image_tag(check_in.photo.key) %>) ">
+        <div class="image-card" style="background-image: <%= cl_image_tag(check_in.photo.key) %>" >
             <%# <%= cl_image_tag(check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
         </div>
       <% end %>
     <% end %>
   </div>
-
+  <div class="secondary-title">
+    <h5>This week's check ins ~</h5>
+  </div>
   <div class="check_ins_container">
     <% @check_ins.each do |check_in| %>
-      <% if check_in.user == current_user %>
-        <div class="link-card">
-            <strong>Checked in on:</strong> <%= link_to check_in.created_at.strftime("%A"), check_in_path(check_in) %> with a score of <%= check_in.score %>/10<br>
+      <div class="link-card">
+        <% if check_in.user == current_user %>
+            <p>
+              <div class="day">
+                <h5><%= link_to check_in.created_at.strftime("%A"), check_in_path(check_in) %>:</h5>
+              </div>
+              <div class='score'>
+                <h1><%= check_in.score %></h1>
+              </div>
+              <div class="scale">
+                <h4>/10</h4>
+              </div>
             <%# <%= cl_image_tag(check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
