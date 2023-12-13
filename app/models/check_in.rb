@@ -71,7 +71,7 @@ class CheckIn < ApplicationRecord
   def music
     keywords = self.music_content
     RSpotify.authenticate(ENV.fetch("SPOTIFY_ID"), ENV.fetch("SPOTIFY_SECRET"))
-    begin
+    # begin
       if (1..2).include?(self.score)
         tracks = RSpotify::Track.search(keywords)
         results = tracks.select do |track|
@@ -100,9 +100,9 @@ class CheckIn < ApplicationRecord
       results.map do |track|
         Medium.create!(check_in: self, music_id: track.id, media_type: "music")
       end
-    rescue RestClient::ExceptionWithResponse, RestClient::TooManyRequests, Exception => e
-      RSpotify.authenticate(ENV.fetch("SPOTIFY_ID2"), ENV.fetch("SPOTIFY_SECRET2"))
-      retry
-    end
+    # rescue RestClient::ExceptionWithResponse, RestClient::TooManyRequests, Exception => e
+    #   RSpotify.authenticate(ENV.fetch("SPOTIFY_ID2"), ENV.fetch("SPOTIFY_SECRET2"))
+    #   retry
+    # end
   end
 end

@@ -16,6 +16,7 @@
 @import "check_ins/index";
 @import "check_ins/new";
 @import "chatrooms/new";
+@import "chatrooms/show";
 
 a{
   text-decoration: none;
@@ -27,6 +28,7 @@ a{
   height: 100vh;
   background-color: white;
   // overflow: hidden;
+  overflow-y: scroll;
   padding-top: -10px;
 }
 
