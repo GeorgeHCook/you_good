@@ -12,13 +12,17 @@
     </div>
     <div id="step2" class="d-none">
        <%= f.input :details, label: 'Anything on your mind?', input_html: { :value => 'No worries if not...' } %>
-       <button class="button" data-action="click->check-in#previous"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)' %></button>
-       <button class="button" data-action="click->check-in#next"><%= image_tag "arrow_white.png" %></button>
+       <div class="button-container">
+        <button class="button" data-action="click->check-in#previous"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)' %></button>
+        <button class="button" data-action="click->check-in#next"><%= image_tag "arrow_white.png" %></button>
+       </div>
     </div>
     <div id="step3" class="d-none">
       <%= f.input :photo, label: 'Why not share a moment from your day', as: :file %>
-      <button class="button" data-action="click->check-in#previous"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)' %></button>
-      <%= f.submit "YouDone?" %>
+      <div class="button-container">
+        <button class="button" data-action="click->check-in#previous"><%= image_tag "arrow_white.png", style: 'transform: rotate(180deg)' %></button>
+        <%= f.submit "YouDone?" %>
+      </div>
     </div>
   <% end %>
 </div>

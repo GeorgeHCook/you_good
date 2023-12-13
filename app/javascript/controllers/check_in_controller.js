@@ -17,7 +17,7 @@ export default class extends Controller {
   previous(event) {
     console.log(event)
     event.preventDefault()
-    const targetElement = event.currentTarget.parentElement
+    const targetElement = event.currentTarget.parentElement.parentElement
     let stepId = parseInt(targetElement.id.slice(-1), 10)
     const nextElement = document.querySelector(`#step${stepId - 1}`)
     targetElement.classList.toggle("d-none")

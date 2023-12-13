@@ -9,17 +9,19 @@
   input[type="range"] {
     margin-top: 20rem;
     height: 2px;
-    width: 300px;
+    width: 400px;
     transform: rotate(-90deg);
     border-radius: 15px;
+    border: #3330D4 0.5px solid;
+    background-color: white;
   }
 
   input[type="range"]::-webkit-slider-thumb {
     /* removing default appearance */
     -webkit-appearance: none;
     appearance: none;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     // background-color: #fff;
     // border-radius: 50%;
     // border: 2px solid #f50;
