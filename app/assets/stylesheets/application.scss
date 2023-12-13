@@ -11,10 +11,12 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/dashboard";
+@import "pages/home";
 @import "check_ins/show";
 @import "check_ins/index";
 @import "check_ins/new";
 @import "chatrooms/new";
+@import "chatrooms/show";
 
 a{
   text-decoration: none;
@@ -23,14 +25,19 @@ a{
 
 .content{
   margin-bottom:150px;
-  margin-top: 3rem;
-  height: 100%;
+  height: 100vh;
   background-color: white;
-  overflow: hidden;
+  // overflow: hidden;
+  overflow-y: scroll;
+  padding-top: -10px;
 }
 
 body {
   background-color: white;
+  height: 100vh;
+  font-weight: 100;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+  }
 }
-
-

@@ -1,7 +1,3 @@
-<div class="dash_container">
-  <div class= "greeting"><h1>YouGood <%= current_user.first_name unless current_user.nil? %>?</h1></div>
-
-  <div class= "fact_container box-shadow">
     <% facts = [
       "Just 10 minutes of mindfulness daily improves focus and reduces stress.",
       "Daily mental exercises, like puzzles, boost cognitive abilities over time.",
@@ -47,29 +43,3 @@
 
     <h4>Did you know?</h4>
     <%= facts.sample %>
-  </div>
-
-  <div class="line"></div>
-  <%= link_to new_check_in_path do %>
-    <div class="link-card box-shadow">
-      New Check-in<%= image_tag "arrow.png", class: "arrow"%><br>
-    </div>
-  <% end %>
-  <%= link_to check_ins_path do %>
-    <div class="link-card box-shadow">
-      The last 7 days<%= image_tag "arrow.png", class: "arrow"%><br>
-    </div>
-  <% end %>
-  <%= link_to chatrooms_path do %>
-    <div class="link-card box-shadow">
-     Talk about it<%= image_tag "arrow.png", class: "arrow"%><br>
-    </div>
-  <% end %>
-  <%= link_to 'https://www.nhs.uk/service-search/mental-health/find-an-urgent-mental-health-helpline' do %>
-    <div class="link-card box-shadow">
-     Find professional help<%= image_tag "arrow.png", class: "arrow"%>
-    </div>
-  <% end %>
-  <div class= "logo"><%= image_tag "faces_stroked.png", class: "faces" %></div>
-
-</div>
