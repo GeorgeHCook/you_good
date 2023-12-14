@@ -14,7 +14,7 @@
   </div>
   <div class="image-container">
   <% if @check_in.photo.attached? %>
-    <%= cl_image_tag(@check_in.photo.key, :transformation => { :width => 400, :crop => "pad" }) %>
+    <%= cl_image_tag @check_in.photo.key, :transformation => { :width => 400, :crop => "pad" } %>
   <% end %><br>
   </div>
   <div class="details"><%= @check_in.details_content %></div>
