@@ -1,5 +1,3 @@
-<div class="message-row d-flex <%= message.user == current_user ? 'justify-content-end' : 'justify-content-start' %>">
-  <div class="<%= message.user == current_user ? 'sender-style' : 'receiver-style' %>">
     <div id="message-<%= message.id %>">
       <small>
         <strong><%= message.user.first_name %></strong>
@@ -7,5 +5,3 @@
       </small>
       <p><%= message.content %></p>
     </div>
-  </div>
-</div>

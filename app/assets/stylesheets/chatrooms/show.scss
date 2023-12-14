@@ -9,20 +9,25 @@
 //   color: #3330D4;
 // }
 .container-chatroom {
+  // margin-bottom: 100px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 100%;
+  // width: 100%;
+  overflow: hidden;
+  align-items: center;
+  padding: 1rem;
+  height: 90vh;
 
-  .container-chatroom2{
+  .messages{
     border: #3330D4 0.5px solid;
     box-shadow:2px 5px 10px rgba(84, 84, 84, 0.512);
-    margin-top: 2rem;
     height: 82%;
     width: 80%;
     border-radius: 5px;
-    padding: 1rem;
   }
-  .simple_form {
-    height:100%;
+
+  .simple_form{
+    width:90%;
   }
 }
