@@ -11,21 +11,23 @@
                   class: "form-control",
                   placeholder: "Find another user..."
               %>
-            <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+            <%= submit_tag "YouTalk?", name: "", class: "button-search" %>
           <% end %>
         </div>
       </div>
     </div>
-    <div><% @users.each do |user| %>
-          <%= link_to "talk to #{user.first_name}", new_chatroom_path(user_id: user.id) %><br>
+    <div class="search-results"><% @users.each do |user| %>
+          <%= button_to "Talk to #{user.first_name}", chatrooms_path(user_id: user.id), class: "chat-button" %><br>
         <% end %>
     </div>
+    <div class="line"></div>
+    <div class="open-title"><h5>Open conversations...</h5></div>
     <div class="current-chats">
       <% @chatrooms.each do |chatroom| %>
         <% if chatroom.participant_one_id == current_user.id %>
-          <%= link_to User.find(chatroom.participant_two_id).first_name, chatroom_path(chatroom) %>
+          <div class="link-card"><%= link_to User.find(chatroom.participant_two_id).first_name, chatroom_path(chatroom) %><%= image_tag "arrow.png", class: "arrow"%></div>
         <% else %>
-          <%= link_to User.find(chatroom.participant_one_id).first_name, chatroom_path(chatroom) %>
+          <div><%= link_to User.find(chatroom.participant_one_id).first_name, chatroom_path(chatroom) %></div>
         <% end %>
         <br>
       <% end %>

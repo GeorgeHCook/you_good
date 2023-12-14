@@ -8,3 +8,19 @@
 //   border: #3330D4 0.5px solid;
 //   color: #3330D4;
 // }
+.container-chatroom {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+  .container-chatroom2{
+    border: #3330D4 0.5px solid;
+    box-shadow:2px 5px 10px rgba(84, 84, 84, 0.512);
+    margin-top: 2rem;
+    height: 82%;
+    width: 80%;
+    border-radius: 5px;
+    padding: 1rem;
+
+  }
+}

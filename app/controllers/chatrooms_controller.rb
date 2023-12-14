@@ -6,7 +6,7 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.find_by(participant_one: current_user.id, participant_two: User.find(params[:user_id]))
-    @chatroom = Chatroom.find_by(participant_one: User.find(params[:user_id]), participant_two: current_user.id)
+    @chatroom = Chatroom.find_by(participant_one: User.find(params[:user_id]), participant_two: current_user.id) unless @chatroom
     unless @chatroom
       @chatroom = Chatroom.create(participant_one: current_user, participant_two: User.find(params[:user_id]))
     end
