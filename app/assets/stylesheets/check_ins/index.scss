@@ -52,7 +52,7 @@
     flex-wrap: wrap;
     white-space: nowrap;
     overflow-x: auto;
-    height: 120px;
+    height: 170px;
     align-items: center;
     padding-bottom: 1rem;
     padding-left: 10%;
@@ -61,8 +61,8 @@
   .link-card {
     display: flex;
     flex-wrap: wrap;
-    height: 100px;
-    width: 200px;
+    height: 150px;
+    width: 300px;
     outline: 1px solid #3330D4;
     margin-right: .7rem;
     margin-top: .5rem;
@@ -76,25 +76,29 @@
 
   .day {
     position: absolute;
-    top: 5px;
-    left: 7px;
+    top: 10px;
+    left: 15px;
+
+    h5 {
+      font-size: 25px;
+    }
   }
 
   .score {
     position: absolute;
     top: 15px;
-    right: 75px;
+    right: 85px;
 
     h1{
-      font-size: 60px;
+      font-size: 90px;
     }
 
   }
   .scale{
     position: absolute;
-    font-size: 20px;
-    top: 47px;
-    right: 45px;
+    font-size: 25px;
+    top: 70px;
+    right: 50px;
   }
 
   .check_ins_images {
@@ -104,7 +108,7 @@
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: visible;
-    height: 130px;
+    height: 170px;
     align-items: center;
     padding-left: 9%;
     padding-bottom: 1rem;
@@ -113,17 +117,17 @@
   .image-card {
     // outline: 1px solid #000000;
     margin: 5px;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
     border-radius: 5px;
-    height: 100px;
-    width: 200px;
+    height: 150px;
+    width: 300px;
     background-position: center;
     background-size: cover;
     white-space: nowrap;
     box-shadow:2px 5px 10px rgba(84, 84, 84, 0.512);
 
     img {
-      height: 100px;
+      height: 100%;
       width: 100%;
       object-fit: cover;
       border-radius: 5px;
