@@ -25,7 +25,8 @@
   <%= f.input :content,
     label: false,
     placeholder: "Talk about it...",
-    wrapper_html: {class: "flex-grow-1"}
+    wrapper_html: {class: "flex-grow-1"},
+    input_html: { autocomplete: "off"}
   %>
   <%= f.submit "~~>", class: "button-send" %>
 <% end %>
