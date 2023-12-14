@@ -27,7 +27,7 @@
         <% if chatroom.participant_one_id == current_user.id %>
           <div class="link-card"><%= link_to User.find(chatroom.participant_two_id).first_name, chatroom_path(chatroom) %><%= image_tag "arrow.png", class: "arrow"%></div>
         <% else %>
-          <div><%= link_to User.find(chatroom.participant_one_id).first_name, chatroom_path(chatroom) %></div>
+          <div class="link-card"><%= link_to User.find(chatroom.participant_one_id).first_name, chatroom_path(chatroom) %><%= image_tag "arrow.png", class: "arrow"%></div>
         <% end %>
         <br>
       <% end %>
