@@ -9,8 +9,8 @@ require "faker"
 require "rspotify"
 require "open-uri"
 
-names = ["George", "Francisco", "Michael", "Dareos"]
-4.times do |i|
+names = ["George", "Pedro", "Dareos"]
+3.times do |i|
   email = "#{names[i - 1]}@test.com"
   first_name = names[i - 1].to_s
   password = "123456"

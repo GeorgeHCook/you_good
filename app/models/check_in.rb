@@ -62,6 +62,7 @@ class CheckIn < ApplicationRecord
       response["items"].map do |result|
         Medium.create!(check_in: self, video_id: result["id"]["videoId"], media_type: "video")
         # video["id"]["videoId"]
+        puts "Created Video!"
       end
     end
   end
@@ -97,7 +98,7 @@ class CheckIn < ApplicationRecord
     end
     results.map do |track|
       Medium.create!(check_in: self, music_id: track.id, media_type: "music")
-      puts "created Medium for #{track}"
+      puts "created Song!"
     end
     # rescue RestClient::ExceptionWithResponse, RestClient::TooManyRequests, Exception => e
     #   RSpotify.authenticate(ENV.fetch("SPOTIFY_ID2"), ENV.fetch("SPOTIFY_SECRET2"))
