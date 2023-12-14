@@ -69,9 +69,10 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "faker"
 gem "pry-byebug"
+gem "cloudinary"
 group :development, :test do
   gem "dotenv-rails"
-  gem "cloudinary"
+  # gem "cloudinary"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
 end
